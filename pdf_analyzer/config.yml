@@ -1,0 +1,87 @@
+# config.yml
+app:
+  title: "PDF Analyser Streamlit App"
+  description: "PDF Analyser Streamlit application."
+
+credentials:
+  usernames:
+    nirat@belongg.net:
+      name: Nirat
+      email: nirat@belongg.net
+      password: Researchrocks@12345
+      role: admin
+
+    jahanbi@belongg.net:
+      name: Jahanbi
+      email: jahanbi@belongg.net
+      password: Researchrocks@12345
+      role: user
+
+    mohan.vishe@futuresmart.ai:
+      name: Mohan
+      email: mohan.vishe@futuresmart.ai
+      password: Researchrocks@12345
+      role: user
+
+    anugraha@belongg.net:
+      name: Anugraha
+      email: anugraha@belongg.net
+      password: Researchrocks@12345
+      role: user
+
+    sookthi@belongg.net:
+      name: Sookthi
+      email: sookthi@belongg.net
+      password: Researchrocks@12345
+      role: user
+
+    sanjana@belongg.net:
+      name: Sanjana
+      email: sanjana@belongg.net
+      password: Researchrocks@12345
+      role: user
+
+    vrinda@abcd.guide:
+      name: Vrinda
+      email: vrinda@abcd.guide
+      password: Researchrocks@12345
+      role: user
+
+    bhavleen@abcd.guide:
+      name: Bhavleen
+      email: bhavleen@abcd.guide
+      password: Researchrocks@12345
+      role: user
+
+    harshita@abcd.guide:
+      name: Harshita
+      email: harshita@abcd.guide
+      password: Researchrocks@12345
+      role: user
+
+    sarthak@abcd.guide:
+      name: Sarthak
+      email: sarthak@abcd.guide
+      password: Researchrocks@12345
+      role: user
+
+    laavni@abcd.guide:
+      name: Laavni
+      email: laavni@abcd.guide
+      password: Researchrocks@12345
+      role: user
+
+    tishara.rajagopal@dalberg.com:
+      name: Tishara Rajagopal
+      email: tishara.rajagopal@dalberg.com
+      password: Researchrocks@12345
+      role: user
+
+security:
+  enable_ssl: false
+  session_timeout: 30
+
+cookie:
+  expiry_days: 30
+  key: jEYVkyx04cr90nhFR3EpQg
+  name: pdf_analyzer

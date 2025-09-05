@@ -1,0 +1,23 @@
+2025-02-10 17:25:46 IST [INFO] uvicorn.error [_serve]: Started server process [7232]
+2025-02-10 17:25:47 IST [INFO] uvicorn.error [startup]: Waiting for application startup.
+2025-02-10 17:25:47 IST [INFO] uvicorn.error [startup]: Application startup complete.
+2025-02-10 17:25:47 IST [INFO] uvicorn.error [_log_started_message]: Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+2025-02-10 17:25:54 IST [INFO] uvicorn.access [send]: 127.0.0.1:59114 - "GET /docs HTTP/1.1" 200
+2025-02-10 17:25:54 IST [INFO] uvicorn.access [send]: 127.0.0.1:59114 - "GET /openapi.json HTTP/1.1" 200
+2025-02-10 17:27:23 IST [INFO] api [retrieve_data]: Retrieval for batch batch_67a9e9a364208190a1849922fca8f4cc started
+2025-02-10 17:27:23 IST [INFO] api [retrieve_data]: Recipient email: mohan.vishe@futuresmart.ai
+2025-02-10 17:27:23 IST [INFO] uvicorn.access [send]: 127.0.0.1:60307 - "POST /retrieve/batch_67a9e9a364208190a1849922fca8f4cc HTTP/1.1" 200
+2025-02-10 17:27:24 IST [ERROR] api [handle_failure]: Batch batch_67a9e9a364208190a1849922fca8f4cc failed with status: validating
+2025-02-10 17:27:24 IST [INFO] api [__init__]: Sender Email: manishashkechum@gmail.com
+2025-02-10 17:27:24 IST [INFO] api [__init__]: Sender Password: ***
+2025-02-10 17:27:24 IST [INFO] api [__init__]: EmailService initialized with SMTP server and port.
+2025-02-10 17:27:24 IST [INFO] api [send_failure_notification]: Preparing to send failure notification email to: mohan.vishe@futuresmart.ai
+2025-02-10 17:27:24 IST [INFO] api [send_failure_notification]: Failure notification email body attached.
+2025-02-10 17:27:24 IST [INFO] api [send_failure_notification]: Creating SMTP session...
+2025-02-10 17:27:25 IST [INFO] api [send_failure_notification]: SMTP session started with TLS.
+2025-02-10 17:27:25 IST [INFO] api [send_failure_notification]: Logging in to SMTP server...
+2025-02-10 17:27:25 IST [INFO] api [send_failure_notification]: Logged in successfully.
+2025-02-10 17:27:25 IST [INFO] api [send_failure_notification]: Sending failure notification email...
+2025-02-10 17:27:27 IST [INFO] api [send_failure_notification]: Failure notification email sent successfully!
+2025-02-10 17:27:27 IST [INFO] api [send_failure_notification]: Closing SMTP session.
+2025-02-10 17:27:27 IST [INFO] api [handle_failure]: Failure notification sent for batch batch_67a9e9a364208190a1849922fca8f4cc

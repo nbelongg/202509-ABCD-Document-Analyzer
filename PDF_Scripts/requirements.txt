@@ -1,0 +1,6 @@
+pdfminer-six
+openai
+langchain
+tiktoken
+pinecone-client 
+sentence_transformers

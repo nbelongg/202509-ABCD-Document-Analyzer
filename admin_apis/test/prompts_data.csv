@@ -1,0 +1,165 @@
+partition_label,doc_type,base_prompt,customization_prompt,temperature,number_of_chunks,prompt_corpus,examples,wisdom_1,wisdom_2,corpus_id,section_title,dependencies,customize_prompt_based_on,send_along_customised_prompt,which_chunks,wisdom_received,llm_flow,type,label_for_output,show_on_frontend,LLM,model
+P1,Policy Document,"Answer the following questions evaluating the summary directly and using the knowledge in the context in the text below as well as your knowledge on mental models as well as human biaises such as loss aversion and others pointed out by Kahneman & Tversky. 
+
+1. Who are the key actors, on both the demand and supply sides, that are involved in implementing and achieving outcomes associated with the policy?
+2. What are the key behaviors - across the entire lifecycle of the topic - by citizens (demand-side actors) and government and developmental functionaries (supply side actors)  that might be really important to achieving the goals listed in the policy? What kinds of behaviours are these - habits, one-off cognitive behaviours? 
+3. What are the various kinds of norms that are likely to be relevant for the topics within the policy? Probe different kinds of norms such as social norms, cultural norms, gender norms, religious norms. Also what kind of behavioural patterns and mental models are likely to explain some of the behavioural patterns? 
+4. And what are the current levels of adherence, in percentage terms, of these behaviours? Which of these is thus a problem and needs to improve? 
+5. As it stands, does behaviour change get enough emphasis in the policy? Answer using specific examples in terms of approaches, budgetary allocations, recognition of behavioural elements in the policy. Also analyze whether the policy, prima facie, only seems to mention IEC (if that) or even more advanced approaches to behaviour change such as choice architecture, nudges, i-frame and s-frame thinking. 
+6 What seems to be the overall level of ""behavioural sophistication"" of the policy? Be clear headed and don't paint a rosy picture.","You are an expert LLM prompt engineer. Customize the ""base prompt"" based on the summary so that it yields more insightful responses. Ensure that the updated prompt is phrased as a set of questions and retains the basic structure of the base prompt. Dont restructure into very long and convoluted questions. 
+
+Be sure to append this - ""Be detailed and nuanced in your answers since the responses are being read by development sector investment professionals working in influential organisations operating in India who are looking to drive impact in the topic area through their grantmaking, focused on behavior change. Each of the answers should have at least 250-300 words of detail. Wherever possible, ground the answer in specifics of the Indian context naming ministries, specific organizations, specific campaigns, and specific data that might be relevant. "" - at the end of the prompt.",,12,,,"Here’s how behavioral principles can be framed as barriers affecting low-income citizens in India across sectors such as health, WASH (Water, Sanitation, and Hygiene), financial inclusion, women's economic empowerment, nutrition, climate change, and education:
+
+Principle 1: Hyperbolic Discounting:
+
+Health: Low-income individuals might prioritize immediate relief from ailments using over-the-counter treatments rather than investing in preventive health care, which provides less immediate but more significant long-term benefits.
+Financial Inclusion: Immediate financial needs often overshadow the perceived future benefits of saving or investing, leading to lower participation in formal financial systems.
+Principle 2: Norms of Reciprocity:
+
+WASH: In communities where there is a lack of reciprocal cooperation, individuals might be less motivated to contribute to communal sanitation efforts, leading to poorly maintained or underutilized facilities.
+Women’s Economic Empowerment: Women may hesitate to participate in economic activities if there is a cultural norm that does not support reciprocation of their efforts, such as sharing income or benefits with the family.
+Principle 3: Status Quo Bias:
+
+Climate Change: Attachment to traditional farming methods and skepticism towards new agricultural technologies can prevent adaptation to climate-resilient practices, despite their long-term benefits.
+Education: Parents might continue to send children to work rather than school, adhering to a status quo that values immediate economic contribution over long-term educational benefits.
+Principle 4: Trust in Public Contribution:
+
+Nutrition: Distrust in public health initiatives can lead to low uptake of nutritional programs, as people may doubt the efficacy or the intent behind the initiatives, especially in remote or underserved areas.
+Financial Inclusion: Lack of trust in financial institutions can deter individuals from engaging with banking services, fearing misuse of personal information or exploitation.
+Principle 5: Identity Priming in Prosocial Behavior:
+
+Women’s Economic Empowerment: If societal identity norms do not support women as entrepreneurs or workers, women might be less likely to seek economic opportunities outside the home.
+Education: In communities where educational attainment is not a part of the identity or cultural expectation, families might not prioritize or value education, affecting children’s enrollment and attendance.
+Principle 6: Tragedy of the Commons:
+
+Climate Change: Individual needs and the immediate economic benefits from overusing natural resources can override the collective need for sustainable practices, exacerbating environmental degradation.
+WASH: Overuse or neglect of shared community resources like water points or latrines can occur when individuals prioritize personal convenience over community welfare.
+Principle 7: Social Proof:
+
+Nutrition: In communities where malnutrition is common, the prevalence of poor nutritional practices might be perpetuated by the social proof of seeing many others engaging in similar behaviors.
+Health: Low uptake of vaccines in communities can be reinforced when significant numbers of community members opt out, providing social proof that non-participation is acceptable or even preferable.
+Principle 8: Present Bias:
+
+Education: The immediate need for children to contribute economically can overshadow the perceived long-term gains from education, leading to high dropout rates.
+Women’s Economic Empowerment: Immediate family needs might lead women to use microloans for day-to-day expenses rather than investing in potentially profitable ventures.
+Principle 9: Altruistic Behavior Against Self-interest:
+
+Financial Inclusion: Individuals might forgo personal financial gains to assist others in immediate need, such as lending money informally without interest, which undermines personal financial security.
+Health: In emergencies, individuals may prioritize helping others over seeking immediate personal medical care, potentially exacerbating their own health issues.
+Principle 10: Cultural Norms of Fairness:
+
+Women’s Economic Empowerment: If cultural norms do not perceive it fair for women to work or own businesses, women are less likely to pursue these opportunities, despite potential economic benefits.
+WASH: Inequitable access to sanitation facilities, often governed by caste or gender norms, can discourage cooperative maintenance and fair use within communities.
+These barriers illustrate how deeply ingrained behaviors and cultural norms can hinder the adoption of beneficial practices among low-income citizens in India, affecting a wide range of developmental sectors.
+
+
+Principle 11: Endowment Effect:
+
+Climate Change: Low-income farmers may resist switching to new, sustainable farming techniques due to a strong preference for traditional methods they currently own and understand, despite the long-term risks of climate impacts on traditional farming.
+Financial Inclusion: Individuals may avoid switching from familiar informal financial practices, like local money lenders, to formal banking services due to a psychological preference for familiar systems, even if the latter offers more security and benefits.
+Principle 12: Loss Aversion:
+
+Nutrition: Efforts to change traditional dietary habits to more nutritious alternatives can face resistance due to fear of losing cultural or taste preferences, despite the health benefits of the new diet.
+WASH: Investments in sanitation facilities can be hindered by individuals' reluctance to change existing practices, like open defecation, due to a loss aversion bias, fearing the loss of comfort or convenience.
+Principle 13: Procrastination Due to Immediate Discomfort:
+
+Health: Immediate discomfort or fear associated with medical procedures like vaccinations can lead to procrastination in seeking necessary health care.
+Education: Parents may delay enrolling their children in school due to the immediate burden of school fees and other costs, overlooking the long-term benefits of education.
+Principle 14: Identifiable Victim Effect:
+
+Women’s Economic Empowerment: Programs aimed at empowering women economically may struggle to gain traction unless they highlight individual stories that people can relate to, making the abstract issue of gender disparity more concrete and urgent.
+Climate Change: Environmental campaigns may fail to motivate action if they do not highlight specific, identifiable victims of climate change, such as farmers suffering from altered rainfall patterns.
+Principle 15: Path Dependency:
+
+Financial Inclusion: Past negative experiences with formal financial systems can lead people to stick with familiar informal financial transactions, affecting the adoption of potentially beneficial financial services.
+Nutrition: Traditional cooking methods and ingredients are perpetuated through generations, making it difficult to introduce more nutritious, less familiar food options.
+Principle 16: Reactance:
+
+Health: Public health mandates, such as compulsory vaccinations, can trigger a backlash if perceived as coercive, leading individuals to reject them in favor of maintaining personal autonomy.
+Education: Educational reforms that impose drastic changes can meet resistance from both parents and educators who feel their autonomy and professional judgment are being undermined.
+Principle 17: Focusing Illusion:
+
+Climate Change: Immediate economic concerns, such as job security or daily income, can overshadow the less visible long-term benefits of investing in climate resilience.
+WASH: Community focus on immediate water access issues may neglect broader, long-term sanitation improvements, due to the less visible impact of poor sanitation on health compared to the immediate benefits of water access.
+Principle 18: Affective Influences on Decision-Making:
+
+Women’s Economic Empowerment: Emotional factors, such as fear of social stigma or familial disapproval, can deter women from pursuing economic opportunities, despite the rational benefits.
+Financial Inclusion: Emotional experiences with past financial losses can disproportionately influence decisions about new financial opportunities, deterring engagement with financial services.
+Principle 19: Social Proof:
+
+Nutrition: In communities where unhealthy eating habits are prevalent, individuals may continue such habits simply because it is the norm, despite awareness of healthier options.
+Health: Low participation in preventative health measures can persist in communities where there is a visible lack of engagement from peers, reinforcing non-participation as the social norm.
+Principle 20: Present Bias:
+
+Climate Change: Immediate costs and efforts required for adapting to sustainable practices can deter actions, as the future benefits of such adaptations are undervalued.
+Financial Inclusion: The immediate costs associated with opening and maintaining a bank account can discourage low-income individuals from participating in formal financial systems, focusing instead on immediate cash needs.","Applying systems thinking principles to issues faced by low-income citizens in India requires a multi-layered approach, considering both demand (community needs) and supply-side stakeholders (government, NGOs, funders). Here’s how these principles can be illustrated with this holistic perspective:
+
+Principle 1: Stocks and Flows:
+
+Example: Access to Clean Water (SDG 6)
+Stock: The quantity of clean water available in community water facilities.
+Flow: Rates of water supply by government schemes and water usage by community members.
+Supply-side Stakeholders: Government infrastructure projects can increase the stock by building more reservoirs; NGOs might focus on the flow by facilitating better water management practices.
+Effective coordination between these entities is crucial for sustainable water management, ensuring adequate availability and access for all, especially in drought-prone areas.
+Principle 2: Feedback Loops:
+
+Example: Educational Programs (SDG 4)
+Reinforcing Feedback: Government or NGO-led educational campaigns can increase enrollment rates, which in turn fosters a culture that values education, encouraging more investments in local schools.
+Balancing Feedback: Overcrowding in schools due to successful enrollment drives might strain resources, potentially lowering educational quality unless further investments are made.
+Policymakers and funders need to anticipate and manage these feedback effects to sustain educational improvements without compromising quality.
+Principle 3: Nonlinearity:
+
+Example: Microfinance Impact (SDG 1)
+Small loans provided to women entrepreneurs can lead to significant improvements in family well-being, but similar investments in different contexts or larger scales don’t always produce proportional impacts.
+Nonprofits and microfinance institutions must tailor their strategies to the specific nonlinear dynamics of the communities they serve, understanding that small interventions can have large but unpredictable impacts.
+Principle 4: Delays:
+
+Example: Nutritional Programs (SDG 2)
+Delays in the distribution of nutritional supplements can have critical impacts on child development in the crucial early years.
+Governments and NGOs must work to minimize these delays through better logistics and by building robust supply chains that can quickly adapt to shortages or distribution issues.
+Principle 5: Resilience:
+
+Example: Disaster Response (SDG 13 and SDG 11)
+Low-income areas are often most vulnerable to natural disasters. Building resilience involves not just infrastructure development but also community training programs by NGOs and government disaster management agencies.
+Programs that enhance both physical and community resilience (like local emergency response teams) are essential for reducing the catastrophic impact of disasters.
+Principle 6: Self-Organization:
+
+Example: Slum Housing Improvements (SDG 11)
+Residents in slum areas often initiate their own solutions to housing issues. NGOs and government programs can support these initiatives by providing materials, legal assistance, or design expertise.
+Recognizing and empowering these grassroots efforts can lead to more sustainable and community-accepted improvements in living conditions.
+Principle 7: Hierarchy:
+
+Example: Health System Strengthening (SDG 3)
+Health care delivery involves multiple levels, from local health workers to tertiary care hospitals. Effective interventions must consider influences and dependencies across these levels.
+Government policies must support not just hospitals but also strengthen primary care, while NGOs can play a crucial role in bridging gaps in service delivery and community health education.
+Incorporating these principles of systems thinking helps ensure that interventions by governments, NGOs, and other stakeholders are more strategic and sustainable, considering the complex interdependencies and dynamics within and between communities and institutional structures. This approach fosters more effective solutions to the challenges faced by low-income citizens in India, aligning closely with the objectives of the Sustainable Development Goals.",C1(Universal corpus),Test Section Title,,Document.Summary,Document.Summary,"P1.F1,P1.F3","P1.F1,P1.F2,P1.F3",,,P1.Output,TRUE,chatgpt,gpt-4o
+P1.F1,Policy Document,"Answer the following questions evaluating the summary directly and using the knowledge in the context in the text below as well as your knowledge on mental models as well as human biaises such as loss aversion and others pointed out by Kahneman & Tversky. 
+
+1. Who are the key actors, on both the demand and supply sides, that are involved in implementing and achieving outcomes associated with the policy?
+2. What are the key behaviors - across the entire lifecycle of the topic - by citizens (demand-side actors) and government and developmental functionaries (supply side actors)  that might be really important to achieving the goals listed in the policy? What kinds of behaviours are these - habits, one-off cognitive behaviours? 
+3. What are the various kinds of norms that are likely to be relevant for the topics within the policy? Probe different kinds of norms such as social norms, cultural norms, gender norms, religious norms. Also what kind of behavioural patterns and mental models are likely to explain some of the behavioural patterns? 
+4. And what are the current levels of adherence, in percentage terms, of these behaviours? Which of these is thus a problem and needs to improve? 
+5. As it stands, does behaviour change get enough emphasis in the policy? Answer using specific examples in terms of approaches, budgetary allocations, recognition of behavioural elements in the policy. Also analyze whether the policy, prima facie, only seems to mention IEC (if that) or even more advanced approaches to behaviour change such as choice architecture, nudges, i-frame and s-frame thinking. 
+6 What seems to be the overall level of ""behavioural sophistication"" of the policy? Be clear headed and don't paint a rosy picture.","You are an expert LLM prompt engineer. Customize the ""base prompt"" based on the summary so that it yields more insightful responses. Ensure that the updated prompt is phrased as a set of questions and retains the basic structure of the base prompt. Dont restructure into very long and convoluted questions. 
+
+Be sure to append this - ""Be detailed and nuanced in your answers since the responses are being read by development sector investment professionals working in influential organisations operating in India who are looking to drive impact in the topic area through their grantmaking, focused on behavior change. Each of the answers should have at least 250-300 words of detail. Wherever possible, ground the answer in specifics of the Indian context naming ministries, specific organizations, specific campaigns, and specific data that might be relevant. "" - at the end of the prompt.",,12,,,,,,,,,Document.Summary,,,ABCDRAG,,P1.F1.Output,TRUE,chatgpt,gpt-4o
+P1.F2,Policy Document,"Answer the following questions evaluating the summary directly and using the knowledge in the context in the text below as well as your knowledge on mental models as well as human biaises such as loss aversion and others pointed out by Kahneman & Tversky. 
+
+1. Who are the key actors, on both the demand and supply sides, that are involved in implementing and achieving outcomes associated with the policy?
+2. What are the key behaviors - across the entire lifecycle of the topic - by citizens (demand-side actors) and government and developmental functionaries (supply side actors)  that might be really important to achieving the goals listed in the policy? What kinds of behaviours are these - habits, one-off cognitive behaviours? 
+3. What are the various kinds of norms that are likely to be relevant for the topics within the policy? Probe different kinds of norms such as social norms, cultural norms, gender norms, religious norms. Also what kind of behavioural patterns and mental models are likely to explain some of the behavioural patterns? 
+4. And what are the current levels of adherence, in percentage terms, of these behaviours? Which of these is thus a problem and needs to improve? 
+5. As it stands, does behaviour change get enough emphasis in the policy? Answer using specific examples in terms of approaches, budgetary allocations, recognition of behavioural elements in the policy. Also analyze whether the policy, prima facie, only seems to mention IEC (if that) or even more advanced approaches to behaviour change such as choice architecture, nudges, i-frame and s-frame thinking. 
+6 What seems to be the overall level of ""behavioural sophistication"" of the policy? Be clear headed and don't paint a rosy picture.","You are an expert LLM prompt engineer. Customize the ""base prompt"" based on the summary so that it yields more insightful responses. Ensure that the updated prompt is phrased as a set of questions and retains the basic structure of the base prompt. Dont restructure into very long and convoluted questions. 
+
+Be sure to append this - ""Be detailed and nuanced in your answers since the responses are being read by development sector investment professionals working in influential organisations operating in India who are looking to drive impact in the topic area through their grantmaking, focused on behavior change. Each of the answers should have at least 250-300 words of detail. Wherever possible, ground the answer in specifics of the Indian context naming ministries, specific organizations, specific campaigns, and specific data that might be relevant. "" - at the end of the prompt.",,12,,,,,,,,,Document.Summary,,,DirectLLM,,P1.F2.Output,TRUE,chatgpt,gpt-4o
+P1.F3,Policy Document,"Answer the following questions evaluating the summary directly and using the knowledge in the context in the text below as well as your knowledge on mental models as well as human biaises such as loss aversion and others pointed out by Kahneman & Tversky. 
+
+1. Who are the key actors, on both the demand and supply sides, that are involved in implementing and achieving outcomes associated with the policy?
+2. What are the key behaviors - across the entire lifecycle of the topic - by citizens (demand-side actors) and government and developmental functionaries (supply side actors)  that might be really important to achieving the goals listed in the policy? What kinds of behaviours are these - habits, one-off cognitive behaviours? 
+3. What are the various kinds of norms that are likely to be relevant for the topics within the policy? Probe different kinds of norms such as social norms, cultural norms, gender norms, religious norms. Also what kind of behavioural patterns and mental models are likely to explain some of the behavioural patterns? 
+4. And what are the current levels of adherence, in percentage terms, of these behaviours? Which of these is thus a problem and needs to improve? 
+5. As it stands, does behaviour change get enough emphasis in the policy? Answer using specific examples in terms of approaches, budgetary allocations, recognition of behavioural elements in the policy. Also analyze whether the policy, prima facie, only seems to mention IEC (if that) or even more advanced approaches to behaviour change such as choice architecture, nudges, i-frame and s-frame thinking. 
+6 What seems to be the overall level of ""behavioural sophistication"" of the policy? Be clear headed and don't paint a rosy picture.","You are an expert LLM prompt engineer. Customize the ""base prompt"" based on the summary so that it yields more insightful responses. Ensure that the updated prompt is phrased as a set of questions and retains the basic structure of the base prompt. Dont restructure into very long and convoluted questions. 
+
+Be sure to append this - ""Be detailed and nuanced in your answers since the responses are being read by development sector investment professionals working in influential organisations operating in India who are looking to drive impact in the topic area through their grantmaking, focused on behavior change. Each of the answers should have at least 250-300 words of detail. Wherever possible, ground the answer in specifics of the Indian context naming ministries, specific organizations, specific campaigns, and specific data that might be relevant. "" - at the end of the prompt.",,12,,,,,,,,,Document.Summary,,,HYDE,,P1.F3.Output,TRUE,chatgpt,gpt-4o
