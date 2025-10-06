@@ -17,6 +17,7 @@ class Model(str, Enum):
     gpt4 = possible_models["gpt-4"]
     gpt4o = "gpt-4o-mini"
     o3 = "o3"
+    gpt5 = "gpt-5"
     
     
 class Chat(BaseModel):

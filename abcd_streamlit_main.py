@@ -103,7 +103,11 @@ def main_panel(st):
 
 
 pdf_mappings=get_pdf_mappings()
-params=st.experimental_get_query_params()
+try:
+    qp = st.query_params
+    params = {k: (v if isinstance(v, list) else [v]) for k, v in qp.items()}
+except Exception:
+    params = st.experimental_get_query_params()
 admin_panel(params,st)
 main_panel(st)
 

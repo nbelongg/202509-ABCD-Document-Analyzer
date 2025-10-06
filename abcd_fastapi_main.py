@@ -17,7 +17,7 @@ import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor
 import requests
-from abcd_collateral_analyzer_api import collateral_router
+#from abcd_collateral_analyzer_api import collateral_router
 
 
 load_dotenv(override=True)
@@ -233,7 +233,6 @@ def get_organization_and_org_guideline_id():
 
 @app.post("/custom_evaluator",tags=["Custom Evaluator"], dependencies=[Depends(verify_api_credentials)])
 def custom_evaluator(
-    session_id: str = Form(None),
     user_id: str = Form(...),
     user_name: Optional[str] = Form(None),
     nature_of_document: pydantic_schemas.newDocumentType = Form(pydantic_schemas.newDocumentType.Program_Design_Document),
@@ -245,7 +244,7 @@ def custom_evaluator(
     tor_text_input: Optional[str] = Form(None)
     ):
     try:
-        response = custom_analyzer_handlers.generate_evaluator_comments(session_id, user_id, user_name, nature_of_document, organization_id, org_guideline_id, proposal_pdf_file, proposal_text_input, tor_pdf_file, tor_text_input)
+        response = custom_analyzer_handlers.generate_evaluator_comments( user_id, user_name, nature_of_document, organization_id, org_guideline_id, proposal_pdf_file, proposal_text_input, tor_pdf_file, tor_text_input)
         return response
     except HTTPException as e:
         raise e
@@ -470,7 +469,7 @@ def get_analyze_evaluate_comments(
                 file.file.close()
         logger.info(f"Session {session_id}: Request handling completed")
 
-app.include_router(collateral_router, tags=["Collateral-Analyzer"], dependencies=[Depends(verify_api_credentials)])
+#app.include_router(collateral_router, tags=["Collateral-Analyzer"], dependencies=[Depends(verify_api_credentials)])
 
 if __name__ == "__main__":
     import uvicorn

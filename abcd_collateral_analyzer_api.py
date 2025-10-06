@@ -9,9 +9,9 @@ from enum import Enum
 from typing import Literal
 import chatbot_handlers,custom_analyzer_handlers,pydantic_schemas
 from pydantic_schemas import (BehaviorGoalsEnum, EmotionsEnum, BehaviorGoalsResponse, EmotionsResponse,
-                            TopicsEnum, BehaviorEnum,TopicsResponse, SubTopicsResponse, BehaviorResponse, SubBehaviorsResponse,
-                            TargetAudienceEnum, TargetAudienceResponse, SettlementTypeEnum, SettlementTypeResponse,
-                            LiteracyComfortLevelEnum, LiteracyComfortLevelResponse,SUB_TOPICS, SUB_BEHAVIORS)
+                           TopicsEnum, BehaviorEnum,TopicsResponse, SubTopicsResponse, BehaviorResponse, SubBehaviorsResponse,
+                           TargetAudienceEnum, TargetAudienceResponse, SettlementTypeEnum, SettlementTypeResponse,
+                           LiteracyComfortLevelEnum, LiteracyComfortLevelResponse,SUB_TOPICS, SUB_BEHAVIORS)
 from db_utils import *
 from common_utils import *
 from collateral_analyzer_utils import encode_image, convert_pdf_to_base64_images, submit_batch_request, retrieve_batch_results, submit_for_image_analysis

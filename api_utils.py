@@ -171,15 +171,16 @@ def get_current_evaluator_prompts(prompt_labels, doc_type = None, organization_i
         prompt_flows= {}
         for prompt_label in prompt_labels:
             data = {
-                'partition_type': '',
+                
                 'doc_type': doc_type ,
                 'organization_id': organization_id,
                 'org_guideline_id': org_guideline_id
             }
-            
+            print(data)
             try:
                 response = requests.post(api_url, headers=headers, data=data)
                 
+                print(response.status_code)
                 if response.status_code == 200:
                     
                     prompts = response.json().get("prompts", [])  
@@ -252,7 +253,7 @@ def get_current_evaluator_prompts(prompt_labels, doc_type = None, organization_i
                     continue
                     raise HTTPException(status_code=404, detail="No prompts found.")
                 else:
-                    raise HTTPException(status_code=response.status_code, detail="Failed to fetch prompts from the API.")
+                    raise HTTPException(status_code=response.status_code, detail=f"Failed to fetch prompts from the API: {response.text}")
             
             except Exception as e:
                 print(f"An error occurred during the query execution for \n Document Type:{doc_type}\nOrganisation ID:{organization_id}: {str(e)}")
@@ -260,7 +261,7 @@ def get_current_evaluator_prompts(prompt_labels, doc_type = None, organization_i
                 raise e
     else:
         data = {
-                'partition_type': '',
+                
                 'doc_type': doc_type ,
                 'organization_id': organization_id,
                 'org_guideline_id': org_guideline_id
@@ -343,7 +344,7 @@ def get_current_evaluator_prompts(prompt_labels, doc_type = None, organization_i
                 return {}
                 raise HTTPException(status_code=404, detail="No prompts found.")
             else:
-                raise HTTPException(status_code=response.status_code, detail="Failed to fetch prompts from the API.")
+                raise HTTPException(status_code=response.status_code, detail=f"Failed to fetch prompts from the API: {response.text}")
             
         except Exception as e:
             print(f"An error occurred during the query execution for \n Document Type:{doc_type}\nOrganisation ID:{organization_id}: {str(e)}")

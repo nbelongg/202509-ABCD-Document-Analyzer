@@ -259,7 +259,6 @@ def generate_evaluator_comments(user_id, user_name, nature_of_document, organiza
         session_id = str(uuid.uuid4())
         prompt_labels=["P1", "P2", "P3", "P4", "P5"]
         nature_of_document = nature_of_document.value
-        gpt3_model = pydantic_schemas.Model.o3
         gpt4_model = pydantic_schemas.Model.o3
         summary_pdf_text_length = int(os.getenv("summary_pdf_text_length"))
         evaluator_tokens_counter = common_utils.get_evaluator_tokens_counter()
@@ -340,6 +339,20 @@ def generate_evaluator_comments(user_id, user_name, nature_of_document, organiza
 
         logger.info("Processing Proposal Pdf...")
         proposal_text, proposal_filename, s3_par_url = process_input(proposal_pdf_file, proposal_text_input, user_id)
+
+        # Optional ToR processing
+        tor_text = ""
+        tor_filename = ""
+        tor_summary_text = ""
+        if tor_pdf_file or tor_text_input:
+            logger.info("Processing TOR input (optional)...")
+            tor_text, tor_filename, _ = process_input(tor_pdf_file, tor_text_input, user_id)
+            if tor_text:
+                try:
+                    tor_summary_text = gpt_utils.get_tor_summary(tor_text, gpt4_model, nature_of_document)
+                except Exception:
+                    logger.exception("Failed to generate TOR summary; proceeding without it.")
+                    tor_summary_text = ""
         
         logger.info("Generating proposal summary...")
         proposal_summary_text = gpt_utils.get_summary(proposal_text, gpt4_model, nature_of_document)       
@@ -349,7 +362,8 @@ def generate_evaluator_comments(user_id, user_name, nature_of_document, organiza
         evaluator_prompts_ordered = common_utils.topological_sort(evaluator_prompt_dependencies)
         
         logger.info("Generating Evaluator Prompts")      
-        generated_evaluator_prompts, evaluator_input_tokens, evaluator_output_tokens = gpt_utils.generate_evaluator_prompts(gpt4_model,nature_of_document,"","",prompts_configurations)
+        generated_evaluator_prompts, evaluator_input_tokens, evaluator_output_tokens = gpt_utils.generate_evaluator_prompts(gpt4_model,nature_of_document,"",tor_summary_text,prompts_configurations)
+        logger.info(f"Generated Evaluator Prompts: {generated_evaluator_prompts}")
         generated_evaluator_prompts["P_Internal"]["wisdom_received"] = prompts_configurations["P_Internal"]["wisdom_received"]
         logger.info("Evaluator Prompts Generated Successfully")
         
@@ -374,9 +388,9 @@ def generate_evaluator_comments(user_id, user_name, nature_of_document, organiza
             proposal_text=proposal_text,
             nature_of_document=nature_of_document,
             organization_id=organization_id,
-            tor_pdf_name="",
-            tor_text="",
-            tor_summary_text="",
+            tor_pdf_name=tor_filename,
+            tor_text=tor_text,
+            tor_summary_text=tor_summary_text,
             generated_analyze_prompts="",
             generated_analyze_comments="",
             analyze_context_used="",

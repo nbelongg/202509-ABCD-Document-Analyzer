@@ -29,11 +29,11 @@ api_key = os.getenv("openai_api_key")
 claude_api_key = os.getenv("claude_api_key")
 organization= os.getenv("openai_organization")
 
-llm = ChatOpenAI(model="gpt-4o", api_key=api_key, openai_organization=organization)
+llm = ChatOpenAI(model="gpt-4o", api_key=api_key, openai_organization=organization, temperature=1)
 
 client = openai.Client(api_key=api_key, organization=organization)
 
-possible_models={"gpt-3.5":"gpt-3.5-turbo","gpt-4":"gpt-4o", "o3":"o3"}
+possible_models={"gpt-3.5":"gpt-3.5-turbo","gpt-4":"gpt-4o", "o3":"o3", "gpt-5":"gpt-5"}
 
 
 def get_whatsapp_prompt():
@@ -292,11 +292,17 @@ def generate_prompt(prompt_for_customization,pdf_text,llm_type,model,prompt,natu
     llm_type = llm_type.lower()
     model = model.lower()
     if llm_type == "chatgpt":
-        llm = ChatOpenAI(model=model, api_key=api_key, organization=organization)
+        if str(model).lower() in ["o3", "gpt-5"]:
+            llm = ChatOpenAI(model=model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=model, api_key=api_key, organization=organization)
     elif llm_type == "claude":
         llm = ChatAnthropic(model=model,anthropic_api_key=claude_api_key)
     else:
-        llm = ChatOpenAI(model=model, api_key=api_key, organization=organization)
+        if str(model).lower() in ["o3", "gpt-5"]:
+            llm = ChatOpenAI(model=model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=model, api_key=api_key, organization=organization)
     
     chain = prompt_template | llm
 
@@ -472,11 +478,17 @@ def generate_prompt_analyze_comments_langchain(analyzer_prompt,context, wisdom_1
     llm_type = llm_type.lower()
     llm_model = llm_model.lower()
     if llm_type == "chatgpt":
-        llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
+        if str(llm_model).lower().startswith("o"):
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
     elif llm_type == "claude":
         llm = ChatAnthropic(model=llm_model,anthropic_api_key=claude_api_key)
     else:
-        llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
+        if str(llm_model).lower().startswith("o"):
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
         
     chain = prompt_template | llm
 
@@ -614,11 +626,17 @@ def generate_flow2_output(prompt_label, generated_prompt, context,model,llm_type
     llm_type = llm_type.lower()
     llm_model = llm_model.lower()
     if llm_type == "chatgpt":
-        llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
+        if str(llm_model).lower() in ["o3", "gpt-5"]:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
     elif llm_type == "claude":
         llm = ChatAnthropic(model=llm_model,anthropic_api_key=claude_api_key)
     else:
-        llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
+        if str(llm_model).lower() in ["o3", "gpt-5"]:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
         
     chain = prompt_template | llm
 
@@ -1053,16 +1071,6 @@ def generate_evaluator_prompt(prompt_for_customization,selected_model, base_prom
     
     system_role = f"""{prompt_for_customization}"""
     
-    response_list = [
-        {"role": "system", "content": system_role},
-        {"role": "user", "content": prompt}
-    ]
-        
-    response = client.chat.completions.create(
-        model=selected_model,
-        messages=response_list
-    )
-    
     prompt_template = ChatPromptTemplate.from_messages([
         (
             "system",
@@ -1070,8 +1078,12 @@ def generate_evaluator_prompt(prompt_for_customization,selected_model, base_prom
         ),
         ("user", "{prompt}"),
     ])
-    
-    llm = ChatOpenAI(model=selected_model, api_key=api_key, organization=organization)
+    print(f"Selected model: {selected_model}")
+    # Set temperature explicitly for "o*" models (e.g., o3) which only support the default (1)
+    if str(selected_model) in ["o3", "gpt-5"]:
+        llm = ChatOpenAI(model=selected_model, api_key=api_key, organization=organization, temperature=1)
+    else:
+        llm = ChatOpenAI(model=selected_model, api_key=api_key, organization=organization)
     
     chain = prompt_template | llm
 
@@ -1511,11 +1523,17 @@ def generate_evaluator_Output(proposal_text,p_internal_prompt,wisdom_1, wisdom_2
     llm_type = llm_type.lower()
     llm_model = llm_model.lower()
     if llm_type == "chatgpt":
-        llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
+        if str(llm_model).lower() in ["o3", "gpt-5"]:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
     elif llm_type == "claude":
         llm = ChatAnthropic(model=llm_model,anthropic_api_key=claude_api_key,max_tokens=8192)
     else:
-        llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
+        if str(llm_model).lower() in ["o3", "gpt-5"]:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization, temperature=1)
+        else:
+            llm = ChatOpenAI(model=llm_model, api_key=api_key, organization=organization)
     
     chain = prompt_template | llm
 
